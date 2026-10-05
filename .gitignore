@@ -1,0 +1,7 @@
+bin/
+build/
+*.o
+*.ko
+*.mod*
+Module.symvers
+modules.order
