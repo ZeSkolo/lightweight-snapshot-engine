@@ -5,3 +5,8 @@ build/
 *.mod*
 Module.symvers
 modules.order
+
+# Local frontend runtime
+.web-data/
+__pycache__/
+*.pyc

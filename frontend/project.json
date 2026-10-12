@@ -1,0 +1,108 @@
+{
+  "repo": "lightweight-snapshot-engine",
+  "title": "Snapshot explorer",
+  "subtitle": "Make a change. Save a moment. Restore it with confidence.",
+  "tools": [
+    {
+      "id": "snapshot",
+      "kind": "snapshot",
+      "title": "Snapshot storage",
+      "description": "Write blocks, save named snapshots and restore earlier states.",
+      "actions": [
+        {
+          "id": "init",
+          "label": "Initialize",
+          "fields": [
+            {
+              "key": "blocks",
+              "label": "Logical blocks",
+              "type": "number",
+              "value": "16",
+              "min": 1,
+              "max": 1024
+            }
+          ],
+          "note": "Creates a separate disposable store. Cannot overwrite an existing store."
+        },
+        {
+          "id": "write",
+          "label": "Write block",
+          "fields": [
+            {
+              "key": "block",
+              "label": "Block number",
+              "type": "number",
+              "value": "0",
+              "min": 0,
+              "max": 1023
+            },
+            {
+              "key": "content",
+              "label": "UTF-8 block content",
+              "type": "textarea",
+              "value": "Original block data"
+            }
+          ]
+        },
+        {
+          "id": "read",
+          "label": "Read block",
+          "fields": [
+            {
+              "key": "block",
+              "label": "Block number",
+              "type": "number",
+              "value": "0",
+              "min": 0,
+              "max": 1023
+            }
+          ]
+        },
+        {
+          "id": "snapshot",
+          "label": "Save snapshot",
+          "fields": [
+            {
+              "key": "name",
+              "label": "Snapshot name",
+              "type": "text",
+              "value": "before-change"
+            }
+          ]
+        },
+        {
+          "id": "list",
+          "label": "List snapshots",
+          "fields": []
+        },
+        {
+          "id": "rollback",
+          "label": "Rollback",
+          "fields": [
+            {
+              "key": "name",
+              "label": "Snapshot name",
+              "type": "text",
+              "value": "before-change"
+            }
+          ],
+          "destructive": true
+        },
+        {
+          "id": "stats",
+          "label": "Statistics",
+          "fields": []
+        },
+        {
+          "id": "verify",
+          "label": "Verify integrity",
+          "fields": []
+        }
+      ],
+      "base": "."
+    }
+  ],
+  "previews": [],
+  "runtime": "Linux + GCC + Make \u00b7 Real user-space snapstore engine \u00b7 No kernel module or root access required",
+  "port": 8105
+}
